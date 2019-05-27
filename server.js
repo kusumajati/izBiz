@@ -16,7 +16,7 @@ const bodyParser = require('body-parser')
 mongoose.Promise = global.Promise;
 
 //connect to database
-mongoose.connect(dbConfig.mongoLabURL, {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true
 }) .then(() => {
     console.log("You are connected to the database");

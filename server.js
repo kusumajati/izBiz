@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 5050;
+const port = process.env.PORT|| 5050
 
 
 //import mongoose
@@ -49,7 +49,7 @@ require('./app/routes/project.route')(app);
 require("./app/routes/user.route")(app)
 
 app.listen(port, () => {
-        console.log(`your server live reload at http://localhost:${port}`)
+        console.log(`you've started the server`)
     }
 )
 module.exports = app;

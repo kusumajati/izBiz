@@ -16,14 +16,14 @@ const port = process.env.PORT|| 5050
 // mongoose.Promise = global.Promise;
 
 // //connect to database
-// mongoose.connect(dbConfig.mongoLocalURL, {
-//     useNewUrlParser: true
-// }) .then(() => {
-//     console.log("You are connected to the database");
-// }) .catch(error => {
-//     console.log("Whoops, you've failed to connect to the database", error);
-//     process.exit()
-// });
+mongoose.connect(dbConfig.mongoLocalURL, {
+    useNewUrlParser: true
+}) .then(() => {
+    console.log("You are connected to the database");
+}) .catch(error => {
+    console.log("Whoops, you've failed to connect to the database", error);
+    process.exit()
+});
 
 // // parse request of content-type - application
 // app.use(bodyParser.urlencoded({extended: true}))
@@ -38,9 +38,9 @@ const port = process.env.PORT|| 5050
 // app.get("/api/docs",swaggerUi.setup(swaggerDoc))
 
 // // define a simple route
-// app.get('/', (req, res) =>{
-//     res.send('welcome to express')
-// } )
+app.get('/', (req, res) =>{
+    res.send('welcome to express')
+} )
 
 // app.get('/api/', (req, res) => res.send('this is api '))
 

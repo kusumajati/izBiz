@@ -18,18 +18,18 @@
   "tags": [
     {
       "name": "project",
-      "description": "Everything about your Project",
+      "description": "Everything about projects",
       "externalDocs": {
         "description": "Find out more",
-        "url": "http://swagger.io"
+        "url": "https://iz-biz.herokuapp.com/"
       }
     },
     {
       "name": "user",
-      "description": "Operations about user",
+      "description": "Operations about users",
       "externalDocs": {
-        "description": "Find out more about our store",
-        "url": "http://swagger.io"
+        "description": "Find out more",
+        "url": "https://iz-biz.herokuapp.com/"
       }
     }
   ],
@@ -462,7 +462,7 @@
     }
   },
   "externalDocs": {
-    "description": "Find out more about Swagger",
+    "description": "Find out more",
     "url": "http://swagger.io"
   }
 }

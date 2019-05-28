@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "This is a sample IzBiz server.  ",
+    "description": "This is a sample IzBiz server by nino.  ",
     "version": "1.0.0",
     "title": "Swagger IzBiz",
     "termsOfService": "http://localhost:5050",

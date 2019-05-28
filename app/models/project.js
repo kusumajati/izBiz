@@ -17,18 +17,19 @@ const projectSchema = mongoose.Schema(
         project_current:{
             type:Number
         },
-        project_author:{
-
-            picture:{
-                type:String,
-                
+        project_author:[
+            {
+                picture:{
+                    type:String,
+                    
+                },
+                username:{
+                    type:String,
+                    required:true
+                },
             },
-            username:{
-                type:String,
-                required:true
-            },
-
-        },
+        ],
+        
         project_holders:[
             {
 

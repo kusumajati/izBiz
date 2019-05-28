@@ -372,6 +372,67 @@
         "name": "User"
       }
     },
+    "Project": {
+      "type": "object",
+      "properties": {
+        "project_name": {
+          "type": "string",
+          "required": true
+        },
+        "project_value": {
+          "type": "number",
+          "minimum": 1000000
+        },
+        "project_pictures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "project_current": {
+          "type": "number"
+        },
+        "project_holders": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "picture": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string",
+                "required": true
+              }
+            },
+            "type": "object"
+          }
+        },
+        "project_author": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "picture": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string",
+                "required": true
+              }
+            },
+            "type": "object"
+          }
+        },
+        "project_desc": {
+          "type": "string"
+        },
+        "project_isOnGoing": {
+          "type": "boolean"
+        }
+      },
+      "xml": {
+        "name": "Project"
+      }
+    },
     "Tag": {
       "type": "object",
       "properties": {
@@ -400,64 +461,6 @@
         "message": {
           "type": "string"
         }
-      }
-    },
-    "Project": {
-      "type": "object",
-      "properties": {
-        "project_name": {
-          "type": "string",
-          "required": true
-        },
-        "project_value": {
-          "type": "number",
-          "minimum": 1000000
-        },
-        "project_pictures": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "project_current": {
-          "type": "number"
-        },
-        "project_author": {
-          "type": "object",
-          "properties": {
-            "picture": {
-              "type": "string"
-            },
-            "username": {
-              "type": "string",
-              "required": true
-            }
-          }
-        },
-        "project_holders": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "picture": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string",
-                "required": true
-              }
-            },
-            "type": "object"
-          }
-        },
-        "project_desc": {
-          "type": "string"
-        },
-        "project_isOnGoing": {
-          "type": "boolean"
-        }
-      },
-      "xml": {
-        "name": "Project"
       }
     }
   },

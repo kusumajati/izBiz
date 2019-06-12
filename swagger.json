@@ -4,7 +4,7 @@
     "description": "This is a sample IzBiz server by nino.  ",
     "version": "1.0.0",
     "title": "Swagger IzBiz",
-    "termsOfService": "http://localhost:5050",
+    "termsOfService": "https://iz-biz.herokuapp.com/",
     "contact": {
       "email": "11351@myoffice.site"
     },
@@ -13,7 +13,7 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "host": "localhost:5050",
+  "host": "iz-biz.herokuapp.com",
   "basePath": "/v1/api",
   "tags": [
     {
@@ -34,8 +34,8 @@
     }
   ],
   "schemes": [
-    "http",
-    "https"
+    "https",
+    "http"
   ],
   "paths": {
     "/user": {

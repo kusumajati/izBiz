@@ -2,6 +2,7 @@ const   User    = require("../models/user")
 const bcrypt = require("bcrypt")
 var jwt = require('jsonwebtoken')
 
+
 exports.create_user = (req,res)=>{
 
     var newUser =  new User({
@@ -22,8 +23,8 @@ exports.create_user = (req,res)=>{
     })
 }
 
-exports.show_users= (req,res)=>{
-    User.find({},(err,docs)=>{
+exports.show_user= (req,res)=>{
+    User.findOne({username:req.decoded.username},(err,docs)=>{
         if(err){
             res.status(422).json({
                 success:false,
@@ -54,7 +55,8 @@ exports.update_user=(req,res)=>{
 }
 
 exports.user_login=(req,res)=>{
-    User.findOne({username:req.body.username}, (err,user)=>{
+    console.log(req.decoded)
+    User.findOne({username:req.decoded.username}, (err,user)=>{
         if(err){
             res.status(400).json({
                 success:false,
@@ -90,4 +92,21 @@ exports.user_login=(req,res)=>{
             })
         }
     })
+}
+
+exports.user_details= (req,res)=>{
+    jwt.verify(req.headers.authorization, 'secret..', (err,decoded)=>{
+        if(err){
+            res.status(400).json({
+                success:false,
+                message: err
+            })
+        }else{
+            res.status(200).json({
+                success:true,
+                message: decoded
+            })
+        }
+    });
+    
 }

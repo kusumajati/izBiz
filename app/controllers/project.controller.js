@@ -1,29 +1,35 @@
 const Project = require('../models/project');
-
+const User = require('../models/user')
 exports.create_project = (req, res) => {
-    var newProject = new Project({
-        project_name: req.body.project_name,
-        project_value: req.body.project_value,
-        project_pictures: req.body.project_pictures,
-        project_current: req.body.project_current,
-        project_author: req.body.project_author,
-        project_holders: req.body.project_holders,
-        project_desc:req.body.project_desc,
-        project_isOnGoing:req.body.project_isOnGoing
-    });
-
-    newProject.save()
-        .then(result => {
-            res.status(201).send({
-                result: result,
-                success:true,
-                message:"new project added"
-            })
-        }).catch(err=>{
-            res.status(405).send({
-                err
-            })
+    
+    User.findOne({username:req.decoded.username}, (err, user)=>{
+        var newProject = new Project({
+            project_name: req.body.project_name,
+            project_value: req.body.project_value,
+            project_pictures: req.body.project_pictures,
+            project_current: req.body.project_current,
+            project_author: user,
+            project_desc:req.body.project_desc,
+            project_isOnGoing:req.body.project_isOnGoing
+        });
+        newProject.project_holders.push(user)
+        newProject.save((err)=>{
+            if(err){
+                res.status(400).json({
+                    success:false,
+                    message:"fail to save project",
+                    data:err
+                }) 
+            }else{
+                res.status(200).json({
+                    success:true,
+                    message:'project saved',
+                    data: newProject
+                })
+            }
         })
+    })
+
 }
 
 exports.show_project = (req, res)=>{

@@ -1,6 +1,6 @@
 const   User    = require("../models/user")
 const bcrypt = require("bcrypt")
-var jwt = require('jsonwebtoken')
+
 
 
 exports.create_user = (req,res)=>{
@@ -55,7 +55,6 @@ exports.update_user=(req,res)=>{
 }
 
 exports.user_login=(req,res)=>{
-    console.log(req.decoded)
     User.findOne({username:req.decoded.username}, (err,user)=>{
         if(err){
             res.status(400).json({
@@ -94,19 +93,20 @@ exports.user_login=(req,res)=>{
     })
 }
 
-exports.user_details= (req,res)=>{
-    jwt.verify(req.headers.authorization, 'secret..', (err,decoded)=>{
+exports.user_posts= (req,res)=>{
+    User.findOne({username:req.decoded.username}).populate('posts').exec((err,post)=>{
         if(err){
             res.status(400).json({
                 success:false,
-                message: err
+                message:'error',
+                data:err
             })
         }else{
             res.status(200).json({
                 success:true,
-                message: decoded
+                message:'posts retrieved!',
+                data: post
             })
         }
-    });
-    
+    })
 }

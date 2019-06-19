@@ -17,30 +17,16 @@ const projectSchema = mongoose.Schema(
         project_current:{
             type:Number
         },
-        project_author:[
+        project_author:
             {
-                picture:{
-                    type:String,
-                    
-                },
-                username:{
-                    type:String,
-                    required:true
-                },
+                type:mongoose.Schema.Types.ObjectId,
+                ref:'User'
             },
-        ],
         
         project_holders:[
             {
-
-                picture:{
-                    type:String,
-                    
-                },
-                username:{
-                    type:String,
-                    required:true
-                }                
+                type:mongoose.Schema.Types.ObjectId,
+                ref:'User'
             }
         ],
         project_desc: {

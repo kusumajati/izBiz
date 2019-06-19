@@ -47,6 +47,7 @@ app.get('/api/', (req, res) => res.send('this is api '))
 // require routes
 require('./app/routes/project.route')(app);
 require("./app/routes/user.route")(app)
+require("./app/routes/post.route")(app)
 
 app.listen(port, () => {
         console.log(`you've started the server`)
